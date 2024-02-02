@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/atc.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'img/atc.css' %}">
+</head>
+<body>
+    {% include 'imc/header.html' %}
+    <div id="hed">
+        <h4 id="he">Cart Items</h4>
+        <hr id="hr">
+    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    
+                    <table class="table">
+                        <tr>
+                            <th id="th">Image</th>
+                            <th id="th">Product Name</th>
+                            <th id="th"">Unit</th>
+                            <th id="th">Quantity</th>
+                            <th id="th">Amount</th>
+                            <th id="th">Remove</th>
+                        </tr>
+                        {% for item in Carts %}
+                            <tr>
+                                <td id="td"><img src="{{item.product.product_image.url}}" alt=""></td>
+                                <td id="td">{{item.product.name}}</td>
+                                <td id="td">{{item.product.selling_price | stringformat:'d'}}</td>
+                                <td id="td">{{item.product_qty}}</td>
+                                <td class="amt">{{item.total_cost | stringformat:'d'}}</td>
+                                <td><a href="{% url 'remove_Cart' item.id %}" class="rem" onclick="return confirm('Are You Sure? You Want to Delete')"><i class="fa fa-trash"></i>Remove</a></td>
+                            </tr>
+                                
+                        {% endfor %}
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td colspan="2"><b>Total Amount</b></td>
+                            <td id="net" colspan="5">0</td>
+                        </tr>
+                    </table>
+                    <div class="bn">
+                        <button type="submit" id="bn" onclick="openpopu()"> Place Order</button>
+                        <div class="popu" id="popu">
+                            <img src="{% static 'images/tick.png' %}" alt="">
+                            <h2>Thank you</h2>
+                            <p>Your order placed successfully, Thank you ❤️.</p>
+                            <button type="button" onclick="closepopu()">OK</button>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const nodes = document.querySelectorAll('.amt')
+        const arr = Array.from(nodes);
+        const res = arr.reduce((acc, curr) => {
+            return acc += Number(curr.textContent)
+        },0);
+        document.getElementById("net").innerHTML="Rs : "+res; 
+    </script>
+    <script>
+        let popu=document.getElementById("popu");
+        function openpopu(){
+            popu.classList.add("open-popu");
+        }
+        function closepopu(){
+            popu.classList.add("close-popu");
+        }
+    </script>
+</body>
+</html>

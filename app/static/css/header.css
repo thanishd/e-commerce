@@ -1,0 +1,307 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body::-webkit-scrollbar{
+    display: none;
+    flex-wrap: wrap;
+}
+.nav{
+    background-color: rgb(60, 118, 141);
+    height: 80px;
+    width: 100%;
+    display: flex;
+}
+h1{
+    color: white;
+    padding-left: 110px;
+    padding-top: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+    font-size: xx-large;
+    text-decoration: none;
+}
+
+.sear{
+    padding-top: none;
+    display: flex;
+}
+.search{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    margin: 30px 20px;
+    margin-left: 50px;
+    height: 10px;
+    width: 550px;
+    text-align: center;
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.search-btn{
+    height: 33px;
+    width: 33px;
+    margin-top: 30px;
+    padding-top: 7px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: medium;
+}
+.button{
+    margin-left: 100px;
+    transition: all 0.5s ease;
+    height: 50px;
+    width: 45px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-size: x-large;
+    position: absolute;
+}
+#sign{
+    margin-top: 32px;
+    margin-left: 30px;
+    height: 30px;
+    width: 90px; 
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: red;
+    color: white;
+    text-align: center;
+    text-shadow: none;
+}
+.btn{
+    margin-top: 32px;
+    margin-left: 305px;
+    height: 30px;
+    width: 90px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(60, 118, 141);
+    color: white;
+    text-align: center;
+    text-shadow: none;
+}
+.popup{
+    height: 300px;
+    margin-top: -150px;
+    width: 1200px;
+    background:white;
+    border-radius: 6px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    box-sizing: border-box;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+.popup h1{
+    color: black;
+    font-size: x-large;
+    text-align: center;
+    margin-left: -100px;
+    padding-top: 50px;
+    cursor: default;
+}
+.popup i{
+    height: 40px;
+    width: 100%;
+    font-size: xx-large;
+    margin-left: 1100px;
+    margin-top: -100px;
+    cursor: default;
+    cursor: pointer;
+}
+.popup1{
+    height: 400px;
+    margin-top: -90px;
+    width: 700px;
+    background:pink;
+    border-radius: 6px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    box-sizing: border-box;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+.popup1 h1{
+    color: black;
+    font-size: x-large;
+    text-align: center;
+    margin-left: -100px;
+    padding-top: 30px;
+    cursor: default;
+}
+.popup1 i{
+    height: 40px;
+    width: 100%;
+    font-size: xx-large;
+    margin-left: 1100px;
+    margin-top: -100px;
+    cursor: default;
+    cursor: pointer;
+}
+.loc{
+    display: flex;
+    float: left;
+    width: 10%;
+    padding: 27px;
+    margin-left: 40px;
+    justify-content: center;
+    margin-top: 5px;
+}
+.popup #pla{
+    text-decoration: none;
+    color: black;
+    width: 10%;
+    padding-top: 95px;
+    margin-left: -55px;
+}
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+}
+.open-popup1{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+}
+.loc img{
+    margin-top: -10px;
+    height: 90px;
+    margin-left: 27px;
+}
+#opens{
+    height: 33px;
+    width: 33px;
+    margin-left: 30px;
+    margin-top: 27px;
+    padding-top: 7px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    font-size: x-large;
+    color: white;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(60, 118, 141);
+}
+.menu{
+    height: 30px;
+    width: 100%;
+    background-color: rgb(8, 51, 68);
+    color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    
+}
+.menubar{
+    margin-left: 110px;
+    color: rgb(205, 199, 199);
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    text-align: left;
+    
+}
+.menubar:hover{
+    color: white;
+}
+.menubar1{
+    margin-right: 45px;
+    color: rgb(205, 199, 199);
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    text-align: center;
+}
+.menubar1:hover{
+    color: white;
+}
+.menubar2{
+    margin-right: 45px;
+    color: rgb(205, 199, 199);
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    text-align: center;
+}
+.menubar2:hover{
+    color: white;
+}
+.menubar3{
+    margin-left: 430px;
+    margin-right: 45px;
+    color: rgb(205, 199, 199);
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    text-align: center;
+}
+.menubar3:hover{
+    color: white;
+}
+.menubar4{
+    margin-right: 45px;
+    color: rgb(205, 199, 199);
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    text-align: center;
+}
+.menubar4:hover{
+    color: white;
+}
+.menubar5{
+    margin-right: 45px;
+    color: rgb(205, 199, 199);
+    background-color: rgb(8, 51, 68);
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+}
+.menubar5:hover{
+    color: white;
+}
+.menubar6{
+    margin-right: 45px;
+    color: rgb(205, 199, 199);
+    background-color: rgb(8, 51, 68);
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+}
+.menubar6:hover{
+    color: white;
+}
+.menubar7{
+    margin-right: -200px;
+    color: rgb(205, 199, 199);
+    background-color: rgb(8, 51, 68);
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    text-align: right;
+    border: 0;
+    cursor: pointer;
+}
+.menubar7:hover{
+    color: white;
+}

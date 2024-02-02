@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'img/register.css' %}">
+</head>
+<body>
+    {% include 'imc/header.html' %}
+    <div class="container">
+        <div class="reg">
+            <h1>Register Page</h1><br>
+            <hr><br>
+            <section>
+                <div class="reg1">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="line">
+                            <label for="" class="reg-label">User Name</label>
+                            {{form.username}} <br>
+                            {% if form.errors.username %}
+                                <label for="" class="reg-input">{{ form.errors.username }}</label>
+                            {% endif %}
+                        </div><br>
+                        <div class="line">
+                            <label for="" class="reg-label2">Email</label>
+                            {{form.email}} <br>
+                            {% if form.errors.email %}
+                                <label for="" class="reg-input">{{ form.errors.email }}</label>
+                            {% endif %}
+                        </div><br>
+                        <div class="line">
+                            <label for="" class="reg-label3">Password</label>
+                            {{form.password1}} <br>
+                            {% if form.errors.password1 %}
+                                <label for="" class="reg-input">{{ form.errors.password1 }}</label>
+                            {% endif %}
+                        </div><br>
+                        <div class="line">
+                            <label for="" class="reg-label4">Confirm Password</label>
+                            {{form.password2}} <br>
+                            {% if form.errors.password2 %}
+                                <label for="" class="reg-input">{{ form.errors.password2 }}</label>
+                            {% endif %}
+                        </div><br>
+                        <button type="submit" id="btn">Register</button>
+                    </form>
+                    <br><p>Already user ? <a href="{% url 'login' %}">Login Now</a></p>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

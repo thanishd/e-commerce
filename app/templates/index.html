@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'img/index.css' %}">
+</head>
+<body>
+    {% include 'imc/header.html' %}
+    <div class="sli">
+        <div class="slider">
+            <div class="slides">
+                <input type="radio" id="radio1" name="radios">
+                <input type="radio" id="radio2" name="radios">
+                <input type="radio" id="radio3" name="radios">
+                <div class="slide first">
+                    <img src="{% static 'images/slide/sli1.jpg' %}" alt="">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'images/slide/sli2.avif' %}" alt="">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'images/slide/sli3.jpg' %}" alt="">
+                </div>
+                <div class="auto">
+                    <div class="auto1"></div>
+                    <div class="auto2"></div>
+                    <div class="auto3"></div>
+                </div>
+            </div>
+            <div class="manual">
+                <label for="radio1" class="manuals"></label>
+                <label for="radio2" class="manuals"></label>
+                <label for="radio3" class="manuals"></label>
+            </div>
+        </div>
+        <script>
+            var counter = 1;
+            setInterval(function(){
+                document.getElementById('radio' + counter).checked = true;
+                counter = counter + 1;
+                if(counter>3){
+                    counter = 1;
+                }
+            },6000);
+        </script>
+    </div>
+    <div id="hed">
+        <h4 id="heds">Latest Products</h4>
+        <hr id="hr">
+    </div>
+    <div class="container">
+        <div class="row1">
+            <div class="column">
+                {% for item in hot %}
+                    <div class="im">
+                        <a href="{% url 'product_details' item.catagory.name item.name %}"><img src="{{item.product_image.url}}" alt="Categories"></a>
+                    </div>
+                    <div class="det">
+                        <a href="{% url 'product_details' item.catagory.name item.name %}"><h5>{{item.name}}</h5></a>
+                        <a href="{% url 'product_details' item.catagory.name item.name %}"><p>
+                            <span class="old_p"><s>Rs.{{item.original_price | stringformat:'d'}}</s></span>
+                            <span class="new_p">Rs.{{item.selling_price | stringformat:'d'}}</span>
+                        </p></a>
+                    </div>            
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+
+    
+    {% include 'imc/footer.html' %}
+</body>
+</html>

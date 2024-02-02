@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'img/header.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="nav">
+                <a href="" style="text-decoration: none;"><h1 class="heading">THANI</h1></a>
+                
+                </div>
+            </div>
+        </div>
+        <div class="menu">
+            <a href="/" class="menubar"><i class="fa fa-shopping-cart" aria-hidden="true"></i>  Online-Shopping</a>
+            <a href="/" class="menubar3"><i class="fa fa-home" aria-hidden="true"></i>  Home</a>
+            <a href="{% url 'collection' %}" class="menubar6"><i class="fa fa-cubes" aria-hidden="true"></i>  Collections</a>
+            {% if request.user.is_authenticated %}
+                <a href="" class="menubar1"><i class="fa fa-user" aria-hidden="true"></i>  {{request.user}}</a>
+                <a href="{% url 'logout' %}" class="menubar2"><i class="fa fa-sign-out" aria-hidden="true"></i>  Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="menubar4"><i class="fa fa-sign-in" aria-hidden="true"></i>  Login</a>
+                <a href="{% url 'register' %}" class="menubar5"><i class="fa fa-user" aria-hidden="true"></i>  Register</a>
+            {% endif %}
+            <a href="{% url 'Cart' %}" class="menubar4"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</a>
+            <a href="{% url 'favviewpage' %}" class="menubar7"><i class="fa fa-heart" aria-hidden="true"></i> Favourite</a>
+        </div>
+    </header>
+</body>
+</html>

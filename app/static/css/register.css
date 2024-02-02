@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.reg h1{
+    color: white;
+    margin-left: 30px;
+    cursor: default;
+}
+.reg{
+    height: 500px;
+    width: 500px;
+    justify-content: center;
+    margin-left: 500px;
+    margin-top: 40px;
+    padding-bottom: -10px;
+    box-shadow: 2px;
+    background-color: rgb(60, 118, 141);
+}
+.reg1 .reg-label{
+    color: white;
+    margin-right: 94px;
+}
+.reg1 .reg-label2{
+    color: white;
+    margin-right: 145px;
+}
+.reg1 .reg-label3{
+    color: white;
+    margin-right: 110px;
+}
+.reg1 .reg-label4{
+    color: white;
+    margin-right: 23px;
+}
+.reg1 #btn{
+    height: 30px;
+    width: 130px;
+    font-size: large;
+    color: white;
+    background-color: rgb(40, 123, 40);
+    cursor: pointer;
+    border: 10px;
+}
+.reg1 a{
+    text-decoration: none;
+}
+.reg1 p{
+    cursor: default;
+}
+.reg1{
+    font-size: x-large;
+    margin-left: 50px;
+}
+.reg1 .reg-input{
+    font-size: medium;
+    color: rgba(245, 11, 15, 0.997);
+}
+.row{
+    height: 400px;
+    width: 500px;
+    margin-left: 500px;
+    margin-top: 50px;
+    padding-bottom: -10px;
+    background-color: rgb(60, 118, 141);
+}
+.row h1{
+    color: white;
+    margin-left: 65px;
+
+}
+.form-label{
+    margin-left: 40px;
+    font-size: x-large;
+    color: white;
+}
+.log{
+    display: flex;
+}
+.log #username{
+    margin-left: 50px;
+    height: 18px;
+    width: 200px;
+    font-size: small;
+    margin-top: 5px;
+}
+.log1 #password{
+    margin-left: 62px;
+    height: 18px;
+    width: 200px;
+    font-size: small;
+    margin-top: 5px;
+}
+.row #btn{
+    height: 30px;
+    width: 130px;
+    margin-top: 60px;
+    font-size: large;
+    color: white;
+    background-color: blue;
+    cursor: pointer;
+    border: 10px;
+    margin-left: 180px;
+}
+
+
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'img/style.css' %}">
+</head>
+<body>
+    {% include 'imc/header.html' %}
+    <div id="hed">
+        <h4 id="he">{{product_name}} Products</h4>
+        <hr id="hr">
+    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    {% for item in datas %}
+                    <div class="im">
+                        <a href="{% url 'product_details' catagory_name item.name %}"><img src="{{item.product_image.url}}" alt="Categories"></a>
+                    </div>
+                    <div class="det">
+                        <a href="{% url 'product_details' catagory_name item.name %}"><h5>{{item.name}}</h5></a>
+                        <a href="{% url 'product_details' catagory_name item.name %}"><p>
+                            <span class="old_p"><s>Rs.{{item.original_price | stringformat:'d'}}</s></span>
+                            <span class="new_p">Rs.{{item.selling_price | stringformat:'d'}}</span>
+                        </p></a>
+                    </div>            
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

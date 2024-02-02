@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+#hr{
+    color: white;
+}
+#hed{
+    font-size: xx-large;
+    margin-top: 30px;
+    margin-left: 110px;
+    margin-right: 110px;
+}
+.table{
+    text-align: center;
+    width: 80%;
+    margin-left: 100px;
+    margin-top: 40px;
+}
+tr{
+    width: 80%;
+    margin-top: 40px;
+    display: space-between;
+    margin-left: 100px;
+}
+#tr{
+    width: 80%;
+    margin-top: 40px;
+    display: space-between;
+    margin-left: 100px;
+}
+#th{
+    color: blue;
+}
+#td img{
+    max-width: 100px;
+    max-height: 100%;
+    padding-top: 30px;
+}
+.bn{
+    width: 240px;
+    height: 30px;
+    margin-left: 1080px;
+    display: flex;
+    margin-top: 60px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+#bn{
+    width: 200px;
+    height: 40px;
+    color: white;
+    background-color: rgb(240, 108, 26);
+    padding: 10px 20px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 300;
+    margin-left: -50px;
+}
+.popu{
+    margin-top: -400px;
+    width: 400px;
+    background: #fff;
+    border: solid;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.4s, top 0,4s;
+}
+.open-popu{
+    visibility: visible;
+    top:50%;
+    transform: translate(-50%,50%) scale(1);
+}
+.close-popu{
+    visibility: hidden;
+    top:0;
+    transform: translate(-50%,-50%) scale(0.1);
+}
+.popu img{
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.popu h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+.popu button{
+    width: 100%;
+    margin-top: 100px;
+    padding: 10px 0;
+    background: #6fd649;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+}

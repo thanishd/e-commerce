@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'img/style.css' %}">
+</head>
+<body>
+    {% include 'imc/header.html' %}
+    <div class="top">
+        {% if request.user.is_authenticated %}
+            <h1>Let's Go Shopping, <br>
+            {{request.user}}</h1>
+            <div class="img">
+                <img src="{% static 'images/slide/sli4.png' %}" alt="">
+            </div>
+        {% else %}
+            <h1>Please Login for Better experience</h1>
+        {% endif %}
+    </div>
+    <div id="hed">
+        <h4 id="he">Collections</h4>
+        <hr id="hr">
+    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    {% for item in datass %}
+                    <div class="im">
+                        <a href="{% url 'collection' item.name %}"><img src="{{item.image.url}}" alt="Categories"></a>
+                    </div>
+                    <div class="det">
+                        <a href="{% url 'collection' item.name %}"><h5>{{item.name}}</h5></a>
+                        <a href="{% url 'collection' item.name %}"><p>{{item.description}}</p></a>
+                    </div>            
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

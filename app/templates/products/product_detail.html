@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'img/style.css' %}">
+</head>
+<body>
+    {% include 'imc/header.html' %}
+    <div id="hed">
+        <h4 id="heds">{{products}}  Details</h4>
+        <hr id="hr">
+    </div>
+    <section>
+        <div class="container">
+            <div class="rows">
+                <div class="columns">
+                    <div class="ims">
+                        {% if products.trending %}
+                            <div class="hot">Hot</div>
+                        {% endif %}
+                        <img src="{{products.product_image.url}}" alt="products">
+                    </div>
+                    <div class="des">
+                        <h5 id="cat">{{products}}</h5>
+                        <div class="pri">
+                            <h5 id="off_p">Rs.{{products.selling_price}}</h5>
+                            <h6 id="cur_p">Rs. <s>{{products.original_price}}</s></h6>
+                        <p id="desc">{{products.description}} </p>
+                        </div>
+                        
+                        <p id="sel">{{products.vender}}</p>
+                        {% if products.quantity > 0 %}
+                        <input type="hidden" value="{{products.id}}" id="pid">
+                        {% csrf_token %}
+                        <p>
+                            <div>
+                                <button id="btnminus"><i class="fa fa-minus"></i></button>
+                                <input type="text" name="qty" id="txtqty" value="1">
+                                <button id="btnplus"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </p>
+                        <button class="atc" id="btncart" ><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                        {% else %}
+                        <button id="atc2"><i class="fa fa-minus"></i> Out of Stock </button>
+                        {% endif %}
+                        <div>
+                            <button id="btnfav" ><i class="fa fa-heart"></i></button>
+                        </div>
+                        <div class="bn">
+                            <button type="submit" id="bn" onclick="openpopu()"><i class="fa fa-bolt-lightning" aria="true" onclick="openpopu()"></i> Buy Now</button>
+                            <div class="popu" id="popu">
+                                <img src="{% static 'images/tick.png' %}" alt="">
+                                <h2>Thank you</h2>
+                                <p>Your details has been successfully submitted.</p>
+                                <button type="button" onclick="closepopu()">OK</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event){
+        const btnplus = document.getElementById("btnplus");
+        const btnminus = document.getElementById("btnminus");
+        const txtqty = document.getElementById("txtqty");
+        const pid = document.getElementById("pid");
+        const tkn = document.querySelector('[name="csrfmiddlewaretoken"]').value;
+        const btncart = document.getElementById("btncart")
+        const btnfav = document.getElementById("btnfav")
+
+
+        btnplus.addEventListener("click", function(){
+            let qty=parseInt(txtqty.value,10);
+            qty=isNaN(qty)?0:qty;
+            //console.log(qty);
+            if(qty<10){
+                qty++;
+                txtqty.value=qty;
+            }
+        });
+
+        btnminus.addEventListener("click", function(){
+            let qty=parseInt(txtqty.value,10);
+            qty=isNaN(qty)?0:qty;
+            //console.log(qty);
+            if(qty>1){
+                qty--;
+                txtqty.value=qty;
+            }
+        });
+
+        btncart.addEventListener("click", function(){
+            let qty=parseInt(txtqty.value,10);
+            qty=isNaN(qty)?0:qty;
+            //console.log(qty);
+            if(qty>0){
+                let postObj = {
+                    product_qty: qty,
+                    pid: pid.value,
+                }
+                //console.log(postObj);
+                fetch("/addtocart/",{
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers:{
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'X-CSRFToken': '{{ csrf_token }}',
+                    },
+                    body: JSON.stringify(postObj)
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    //console.log(data);
+                    alert(data['status']);
+                });
+            }else{
+                alert("Please Enter The Quantity");
+            }
+        });
+        
+        btnfav.addEventListener("click", function(){
+                let postObj = {
+                    pid: pid.value,
+                }
+                //console.log(postObj);
+                fetch("/fav/",{
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers:{
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'X-CSRFToken': '{{ csrf_token }}',
+                    },
+                    body: JSON.stringify(postObj)
+                }).then(response => {
+                    return response.json();
+                }).then(data => {
+                    //console.log(data);
+                    alert(data['status']);
+                });
+            
+        });
+
+    });
+    </script>
+    <script>
+        let popu=document.getElementById("popu");
+        function openpopu(){
+            popu.classList.add("open-popu");
+        }
+        function closepopu(){
+            popu.classList.add("close-popu");
+        }
+    </script>
+</body>
+</html>
